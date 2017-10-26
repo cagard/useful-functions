@@ -1,0 +1,38 @@
+---
+title: "unsorted functions"
+author: "Christopher Agard"
+date: "October 25, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#myinstallpackages()
+
+##Description
+This function checks to see if packages are installed and attempts to install those that are not already installed.  After checking and installing, *myinstall* attempts to library the packages
+
+##Arguments
+*mypackages* takes a character object or vector that names the package or packages to be installed.  
+The default value is NULL.
+### Notes:
+- Each package must be surrounded by quotation marks(e.g.,to install and library, *read.xlsx*, myinstall("read.xlsx"))
+- If multiple packages are supplied to mypackages argument, they must be supplied as a vector (e.g., to install and library *stats* and *tabular*, myinstall(c("stats","tabular"))
+
+##Next steps 
+- the argument supplied to the mypackages argument muct have each function surrounded by quotations, will attempt to allow the function to provide necessary quotations.
+- this function is relatively slow, will attempt to vectorize the function in a better way to speed it up
+##code
+```{r}
+myinstallpackages<-function(mypackages){
+        neededpackages<-as.character(mypackages[which(!is.element(el=mypackages,set=installed.packages()))])
+        if(length(neededpackages>0)){
+                install.packages(neededpackages)
+        }else{
+                warning("All packages already installed")
+        }
+        lapply(mypackages,function(x) library(x,character.only = T))
+}
+```

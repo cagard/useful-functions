@@ -1,0 +1,67 @@
+---
+title: "Statistical Functions"
+author: "Christopher Agard"
+date: "October 25, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#statMode()
+##Description
+This function calculates the *mode* of a vector
+
+##Arguments
+*x* takes an integer or numeric vector
+
+### Notes:
+
+
+##Next steps 
+- test limits of vector types supplied to argument
+- add stop functions to this function when critcal condition are not met
+##code
+```{r}
+statMode<-function(x){
+        tmp<-as.data.frame(table(x))#store tabled frequencies of values as a dataframe with colnames *x* and *Freq*
+        mode<-tmp[which(tmp$Freq==max(tmp$Freq)),1]
+        return(mode)
+}
+```
+#sumstat()
+
+##Description
+This function calculates *mean*, *standard deviation (sd)*, *median*, *Inter Quartile Range*, *n*
+
+##Arguments
+*x* takes an integer or numeric vector
+
+### Notes:
+- requires the function *statMode*
+
+##Next steps 
+- test limits of vector types supplied to argument
+- add stop functions to this function when critcal condition are not met
+##code
+```{r}
+sumstat<-function(x){
+        mysumresults<-list("mean"=mean(x,na.rm=T),
+                           "sd"=sd(x,na.rm=T),
+                           "median"=median(x,na.rm=T),
+                           "iqr"=IQR(x,na.rm=T),
+                           "mode"=statMode(x),
+                           "n"= if(is.null(dim(x))){
+                                   length(x)
+                           }
+                           else{
+                                   nrow(x)
+                                   
+                           }
+        )
+        return(mysumresults)
+}
+```
+
+
