@@ -1,0 +1,7 @@
+README.md
+setup.py
+pretty_print.egg-info/PKG-INFO
+pretty_print.egg-info/SOURCES.txt
+pretty_print.egg-info/dependency_links.txt
+pretty_print.egg-info/requires.txt
+pretty_print.egg-info/top_level.txt

@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: pretty-print
+Version: 0.1.1
+Summary: Python library for facilitating automated print job
+Home-page: UNKNOWN
+Author: Christopher Agard
+Author-email: cragard@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
